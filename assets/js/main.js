@@ -1,0 +1,3 @@
+const toggle=document.querySelector('.nav-toggle');const menu=document.querySelector('#site-menu');if(toggle&&menu){toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));menu.classList.toggle('open',!open)});menu.addEventListener('click',event=>{if(event.target.closest('a')){toggle.setAttribute('aria-expanded','false');menu.classList.remove('open')}})}
+const page=document.body.dataset.page;const current=document.querySelector(`[data-nav="${page}"]`);if(current)current.setAttribute('aria-current','page');
+document.querySelectorAll('a[target="_blank"]').forEach(link=>{link.rel='noopener noreferrer'});

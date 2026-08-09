@@ -1,0 +1,1 @@
+{"name":"know-yellowknife","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node --test","serve":"npx --yes http-server . -p 4173 -c-1"},"engines":{"node":">=20"}}
