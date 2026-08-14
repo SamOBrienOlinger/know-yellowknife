@@ -24,4 +24,8 @@ KYK’s mission is to offer residents and visitors alike an inclusive space to e
 - Credit 2
 - Credit 3
 
+## Project origins
+
+Know Yellowknife evolved from AllyIndex (opens in a new tab), created by the Allies in Action team during the Code Institute July 2024 hackathon. This MVP reuses the idea of learning through a quiz while replacing the original subject matter and rebuilding its interface and content structure for Yellowknife.
+
 - This project evolved from a MVP delivered as part of a hackathon run by Code Institute that was called [AllyIndex](https://declan444.github.io/24-7-hackathon-team9/index.html)
