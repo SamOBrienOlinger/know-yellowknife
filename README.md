@@ -24,8 +24,4 @@ KYK’s mission is to offer residents and visitors alike an inclusive space to e
 - Credit 2
 - Credit 3
 
-### Allies in Action
-
-  ![allies-in-action-team](https://github.com/user-attachments/assets/123dfd14-d2f9-48e6-8ffd-ad6eb5cd590f)
-
-- This project has evolved from a more basic concept delivered for a hackathon. The MVP delivered was [AllyIndex](https://declan444.github.io/24-7-hackathon-team9/index.html)
+- This project evolved from a MVP delivered as part of a hackathon run by Code Institute that was called [AllyIndex](https://declan444.github.io/24-7-hackathon-team9/index.html)
