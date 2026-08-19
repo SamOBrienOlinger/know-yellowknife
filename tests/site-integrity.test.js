@@ -65,3 +65,13 @@ test('accessibility safeguards cover zoom, touch targets and user preferences', 
   assert.match(css, /prefers-contrast:more/);
   assert.match(css, /forced-colors:active/);
 });
+
+test('responsive layout preserves gutters and compact component actions', async () => {
+  const css = await readFile(resolve(root, 'assets/css/styles.css'), 'utf8');
+  assert.match(css, /--gutter:clamp\(1rem,4vw,2rem\)/);
+  assert.match(css, /\.container\{width:min\(calc\(100% - \(var\(--gutter\) \* 2\)\),var\(--max\)\)\}/);
+  assert.match(css, /\.callout\{width:min\(calc\(100% - \(var\(--gutter\) \* 2\)\),var\(--max\)\);margin-block:2\.75rem;padding:1\.6rem/);
+  assert.match(css, /\.callout h2\{font-size:clamp\(1\.8rem,7\.5vw,2\.1rem\);max-width:100%\}/);
+  assert.match(css, /\.callout \.button\{width:auto;align-self:flex-start/);
+  assert.match(css, /#question-text\{font-size:clamp\(1\.65rem,7vw,1\.9rem\)/);
+});

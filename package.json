@@ -1,1 +1,1 @@
-{"name":"know-yellowknife","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node --test","serve":"npx --yes http-server . -p 4173 -c-1"},"engines":{"node":">=20"}}
+{"name":"know-yellowknife","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node scripts/dev-server.js","test":"node --test","serve":"node scripts/dev-server.js --host 0.0.0.0 --port 4173"},"engines":{"node":">=20"}}
