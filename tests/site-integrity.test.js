@@ -75,3 +75,24 @@ test('responsive layout preserves gutters and compact component actions', async 
   assert.match(css, /\.callout \.button\{width:auto;align-self:flex-start/);
   assert.match(css, /#question-text\{font-size:clamp\(1\.65rem,7vw,1\.9rem\)/);
 });
+
+test('about page credits Sam Tim Solutions with accessible profile links', async () => {
+  const html = await readFile(resolve(root, 'about.html'), 'utf8');
+  assert.match(html, /id="sam-tim-solutions">Sam Tim Solutions</);
+  assert.match(html, /provides services in a private capacity in response to bespoke briefs/);
+  assert.match(html, /educate and empower individuals, families and communities/);
+  assert.match(html, /href="https:\/\/share\.google\/zgwtj8LFfnwQGIv5n"[^>]+aria-label="Sam Tim Solutions on LinkedIn/);
+  assert.match(html, /href="https:\/\/github\.com\/SamOBrienOlinger"[^>]+aria-label="Sam O’Brien-Olinger on GitHub/);
+  assert.match(html, /<svg aria-hidden="true"/);
+});
+
+test('every standard site footer includes the linked developer credit', async () => {
+  for (const name of ['index.html', 'learn.html', 'quiz.html', 'about.html', 'contact.html', 'privacy.html', 'accessibility.html']) {
+    const html = await readFile(resolve(root, name), 'utf8');
+    assert.match(
+      html,
+      /class="container developer-credit">Designed and developed by <a href="about\.html#sam-tim-solutions">Sam Tim Solutions<\/a>\.<\/p>/,
+      `${name} needs the Sam Tim Solutions developer credit`,
+    );
+  }
+});
