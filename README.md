@@ -6,13 +6,14 @@ Know Yellowknife is a mobile-first educational MVP about Yellowknife's peoples, 
 
 ## MVP features
 
-- Home, Learn, Quiz, About, Contact, Privacy and custom 404 pages
+- Home, Learn, Quiz, About, Contact, Accessibility, Privacy and custom 404 pages
 - Structured learning content backed by Indigenous-led and official public sources
 - 24 sourced questions; 10 shuffled without replacement per attempt
 - Immediate answer explanations and source links
 - Device-local best score with graceful storage failure handling
+- On-demand translation into Arabic, French, Dutch, German, Italian and Spanish
 - Keyboard-operable navigation and quiz with visible focus and live feedback
-- Mobile-first responsive design and reduced-motion support
+- Mobile-first responsive design with reduced-motion, increased-contrast and forced-colour support
 - Zero runtime dependencies, trackers or external media
 - Unit/data/asset tests using Node's built-in test runner
 
@@ -42,6 +43,7 @@ assets/
   data/content.js
   data/questions.js
   js/main.js
+  js/translation.js
   js/learn.js
   js/quiz-engine.js
   js/quiz.js
@@ -49,6 +51,7 @@ assets/
 tests/
   quiz-engine.test.js
   site-integrity.test.js
+  translation.test.js
 ```
 
 ## Content policy

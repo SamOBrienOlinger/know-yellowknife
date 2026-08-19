@@ -10,7 +10,10 @@ Run `npm test`. The suite validates:
 - high-score rules;
 - every required page;
 - every internal page, stylesheet and script reference;
-- removal of legacy subject text from production pages.
+- removal of legacy subject text from production pages;
+- homepage pathways without decorative sequence numbers;
+- translation language, link, keyboard and privacy safeguards;
+- key responsive and accessibility CSS protections.
 
 ## Manual acceptance checklist
 
@@ -22,6 +25,10 @@ Run `npm test`. The suite validates:
 - [ ] Refresh and confirm the best score persists; block local storage and confirm the quiz still completes.
 - [ ] Confirm feedback is announced by NVDA or VoiceOver.
 - [ ] Confirm reduced-motion mode removes non-essential transitions.
+- [ ] Confirm increased-contrast and forced-colour preferences preserve borders, focus and quiz answer states.
+- [ ] Open the Translate control with mouse, touch and keyboard; close it with Escape and verify focus returns to the control.
+- [ ] Check all six translation links and confirm Arabic uses a right-to-left translated layout.
+- [ ] Confirm no request to Google Translate is made until a language is chosen.
 - [ ] Submit the empty contact form and confirm native validation; complete it and confirm the page explicitly says nothing was sent.
 - [ ] Check external source links and the source register.
 - [ ] Run Lighthouse and axe against every page and the quiz intro/question/feedback/results states.

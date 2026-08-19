@@ -1,3 +1,5 @@
+import { initialiseTranslationControl } from './translation.js';
+
 const toggle = document.querySelector('.nav-toggle');
 const menu = document.querySelector('#site-menu');
 
@@ -9,6 +11,7 @@ if (toggle && menu) {
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     menu.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
     if (label) label.textContent = open ? 'Close' : 'Menu';
     if (icon) icon.textContent = open ? '×' : '☰';
   }
@@ -41,3 +44,15 @@ if (current) current.setAttribute('aria-current', 'page');
 document.querySelectorAll('a[target="_blank"]').forEach(link => {
   link.rel = 'noopener noreferrer';
 });
+
+const projectLinks = document.querySelector('.site-footer .footer-grid > div:last-child ul');
+if (projectLinks && !projectLinks.querySelector('a[href="accessibility.html"]')) {
+  const item = document.createElement('li');
+  const link = document.createElement('a');
+  link.href = 'accessibility.html';
+  link.textContent = 'Accessibility';
+  item.append(link);
+  projectLinks.prepend(item);
+}
+
+initialiseTranslationControl(menu);
