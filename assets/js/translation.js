@@ -4,23 +4,35 @@ export const translationLanguages = Object.freeze([
   { code: 'pa', label: 'Punjabi', nativeLabel: 'ਪੰਜਾਬੀ', direction: 'ltr' }
 ]);
 
-export const indigenousLanguageResources = Object.freeze([
-  {
-    code: 'ike',
-    label: 'Inuktitut',
-    context: 'Official language resources',
-    url: 'https://www.ece.gov.nt.ca/en/inuktitut'
-  },
+export const indigenousLanguageOptions = Object.freeze([
   {
     code: 'dgr',
     label: 'Tłı̨chǫ',
     context: 'Wıı̀lıı̀deh dialect resources',
     url: 'https://www.ece.gov.nt.ca/en/services/indigenous-language-resources/tlicho-resources'
+  },
+  {
+    code: 'scs',
+    label: 'Dene Kǝdǝ́',
+    context: 'North Slavey resources',
+    url: 'https://www.ece.gov.nt.ca/en/dene-kede'
+  },
+  {
+    code: 'iu',
+    label: 'Inuktut (Inuktitut)',
+    context: 'Translate this page',
+    direction: 'ltr',
+    translate: true
   }
 ]);
 
 export const buildTranslationUrl = (language, pageUrl) => {
-  if (!translationLanguages.some(item => item.code === language)) {
+  const supportedLanguages = [
+    ...translationLanguages,
+    ...indigenousLanguageOptions.filter(item => item.translate)
+  ];
+
+  if (!supportedLanguages.some(item => item.code === language)) {
     throw new Error('Unsupported translation language');
   }
 
@@ -34,7 +46,10 @@ export const buildTranslationUrl = (language, pageUrl) => {
 export const initialiseTranslationControl = menu => {
   if (location.hostname.endsWith('.translate.goog')) {
     const target = new URLSearchParams(location.search).get('_x_tr_tl');
-    const language = translationLanguages.find(item => item.code === target);
+    const language = [
+      ...translationLanguages,
+      ...indigenousLanguageOptions.filter(item => item.translate)
+    ].find(item => item.code === target);
     if (language) {
       document.documentElement.lang = language.code;
       document.documentElement.dir = language.direction;
@@ -97,19 +112,20 @@ export const initialiseTranslationControl = menu => {
 
   const indigenousIntroduction = document.createElement('p');
   indigenousIntroduction.className = 'translation-introduction';
-  indigenousIntroduction.textContent = 'Yellowknife’s official Indigenous languages are Inuktitut and Tłı̨chǫ (Wıı̀lıı̀deh dialect). Full-page machine translation is not currently available, so these links open official GNWT language resources.';
+  indigenousIntroduction.textContent = 'Access Tłı̨chǫ, Dene Kǝdǝ́ (North Slavey) and Inuktut (Inuktitut). Google provides automated Inuktut translation; the other links open official GNWT language resources.';
 
   const indigenousList = document.createElement('ul');
   indigenousList.className = 'translation-options indigenous-language-options';
 
-  indigenousLanguageResources.forEach(language => {
+  indigenousLanguageOptions.forEach(language => {
     const listItem = document.createElement('li');
     const link = document.createElement('a');
-    link.className = 'translation-link language-resource-link';
-    link.href = language.url;
+    link.className = `translation-link ${language.translate ? 'indigenous-translation-link' : 'language-resource-link'}`;
+    link.href = language.translate ? buildTranslationUrl(language.code, location.href) : language.url;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.hreflang = 'en';
+    link.hreflang = language.translate ? language.code : 'en';
+    if (language.translate) link.lang = language.code;
     link.textContent = `${language.label} — ${language.context}`;
 
     const newTab = document.createElement('span');

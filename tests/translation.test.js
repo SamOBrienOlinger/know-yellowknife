@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { buildTranslationUrl, indigenousLanguageResources, translationLanguages } from '../assets/js/translation.js';
+import { buildTranslationUrl, indigenousLanguageOptions, translationLanguages } from '../assets/js/translation.js';
 
 test('translation control offers the requested languages', () => {
   assert.deepEqual(translationLanguages.map(language => language.code), ['fr', 'tl', 'pa']);
@@ -15,13 +15,15 @@ test('translation links preserve the source page and target language', () => {
   assert.equal(url.searchParams.get('sl'), 'en');
   assert.equal(url.searchParams.get('tl'), 'tl');
   assert.equal(url.searchParams.get('u'), 'https://example.com/learn.html#place');
+  assert.equal(new URL(buildTranslationUrl('iu', 'https://example.com/')).searchParams.get('tl'), 'iu');
   assert.throws(() => buildTranslationUrl('xx', 'https://example.com/'));
 });
 
-test('translation panel includes Yellowknife Indigenous language resources', () => {
-  assert.deepEqual(indigenousLanguageResources.map(language => language.code), ['ike', 'dgr']);
-  assert.deepEqual(indigenousLanguageResources.map(language => language.label), ['Inuktitut', 'Tłı̨chǫ']);
-  assert.ok(indigenousLanguageResources.every(language => language.url.startsWith('https://www.ece.gov.nt.ca/')));
+test('translation panel includes Yellowknife Indigenous language access', () => {
+  assert.deepEqual(indigenousLanguageOptions.map(language => language.code), ['dgr', 'scs', 'iu']);
+  assert.deepEqual(indigenousLanguageOptions.map(language => language.label), ['Tłı̨chǫ', 'Dene Kǝdǝ́', 'Inuktut (Inuktitut)']);
+  assert.deepEqual(indigenousLanguageOptions.filter(language => language.translate).map(language => language.code), ['iu']);
+  assert.ok(indigenousLanguageOptions.filter(language => !language.translate).every(language => language.url.startsWith('https://www.ece.gov.nt.ca/')));
 });
 
 test('translation control is keyboard accessible and privacy preserving by default', async () => {
@@ -33,7 +35,8 @@ test('translation control is keyboard accessible and privacy preserving by defau
   assert.match(source, /noopener noreferrer/);
   assert.doesNotMatch(source, /translate_a\/element\.js/);
   assert.match(source, /document\.documentElement\.dir = language\.direction/);
-  assert.match(source, /Full-page machine translation is not currently available/);
+  assert.match(source, /Google provides automated Inuktut translation/);
+  assert.match(source, /Dene Kǝdǝ́ \(North Slavey\)/);
   assert.match(source, /Wıı̀lıı̀deh dialect/);
 });
 
