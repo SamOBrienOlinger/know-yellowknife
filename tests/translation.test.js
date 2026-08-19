@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { buildTranslationUrl, translationLanguages } from '../assets/js/translation.js';
+import { buildTranslationUrl, indigenousLanguageResources, translationLanguages } from '../assets/js/translation.js';
 
 test('translation control offers the requested languages', () => {
   assert.deepEqual(translationLanguages.map(language => language.code), ['ar', 'fr', 'nl', 'de', 'it', 'es']);
@@ -18,6 +18,12 @@ test('translation links preserve the source page and target language', () => {
   assert.throws(() => buildTranslationUrl('xx', 'https://example.com/'));
 });
 
+test('translation panel includes Yellowknife Indigenous language resources', () => {
+  assert.deepEqual(indigenousLanguageResources.map(language => language.code), ['ike', 'dgr']);
+  assert.deepEqual(indigenousLanguageResources.map(language => language.label), ['Inuktitut', 'Tłı̨chǫ']);
+  assert.ok(indigenousLanguageResources.every(language => language.url.startsWith('https://www.ece.gov.nt.ca/')));
+});
+
 test('translation control is keyboard accessible and privacy preserving by default', async () => {
   const source = await readFile(new URL('../assets/js/translation.js', import.meta.url), 'utf8');
   assert.match(source, /aria-expanded/);
@@ -27,6 +33,8 @@ test('translation control is keyboard accessible and privacy preserving by defau
   assert.match(source, /noopener noreferrer/);
   assert.doesNotMatch(source, /translate_a\/element\.js/);
   assert.match(source, /document\.documentElement\.dir = language\.direction/);
+  assert.match(source, /Full-page machine translation is not currently available/);
+  assert.match(source, /Wıı̀lıı̀deh dialect/);
 });
 
 test('privacy page explains the optional translation service', async () => {

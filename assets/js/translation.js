@@ -7,6 +7,21 @@ export const translationLanguages = Object.freeze([
   { code: 'es', label: 'Spanish', nativeLabel: 'Español', direction: 'ltr' }
 ]);
 
+export const indigenousLanguageResources = Object.freeze([
+  {
+    code: 'ike',
+    label: 'Inuktitut',
+    context: 'Official language resources',
+    url: 'https://www.ece.gov.nt.ca/en/inuktitut'
+  },
+  {
+    code: 'dgr',
+    label: 'Tłı̨chǫ',
+    context: 'Wıı̀lıı̀deh dialect resources',
+    url: 'https://www.ece.gov.nt.ca/en/services/indigenous-language-resources/tlicho-resources'
+  }
+]);
+
 export const buildTranslationUrl = (language, pageUrl) => {
   if (!translationLanguages.some(item => item.code === language)) {
     throw new Error('Unsupported translation language');
@@ -79,11 +94,40 @@ export const initialiseTranslationControl = menu => {
     list.append(listItem);
   });
 
+  const indigenousHeading = document.createElement('p');
+  indigenousHeading.className = 'translation-subheading';
+  indigenousHeading.textContent = 'Yellowknife Indigenous languages';
+
+  const indigenousIntroduction = document.createElement('p');
+  indigenousIntroduction.className = 'translation-introduction';
+  indigenousIntroduction.textContent = 'Yellowknife’s official Indigenous languages are Inuktitut and Tłı̨chǫ (Wıı̀lıı̀deh dialect). Full-page machine translation is not currently available, so these links open official GNWT language resources.';
+
+  const indigenousList = document.createElement('ul');
+  indigenousList.className = 'translation-options indigenous-language-options';
+
+  indigenousLanguageResources.forEach(language => {
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.className = 'translation-link language-resource-link';
+    link.href = language.url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.hreflang = 'en';
+    link.textContent = `${language.label} — ${language.context}`;
+
+    const newTab = document.createElement('span');
+    newTab.className = 'sr-only';
+    newTab.textContent = ' (opens in a new tab)';
+    link.append(newTab);
+    listItem.append(link);
+    indigenousList.append(listItem);
+  });
+
   const note = document.createElement('p');
   note.className = 'translation-note';
   note.textContent = 'Machine translation by Google may contain errors.';
 
-  panel.append(heading, introduction, list, note);
+  panel.append(heading, introduction, list, indigenousHeading, indigenousIntroduction, indigenousList, note);
   item.append(toggle, panel);
   menu.append(item);
 

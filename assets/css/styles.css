@@ -67,11 +67,13 @@ button,a,input,select,textarea{touch-action:manipulation}
 .translate-toggle:focus-visible{outline:3px solid var(--white);outline-offset:3px;box-shadow:0 0 0 6px var(--blue-dark)}
 .translation-panel{position:absolute;z-index:250;top:calc(100% + .65rem);right:0;width:min(21rem,calc(100vw - 2rem));padding:1rem;border:1px solid var(--border);border-radius:.75rem;background:var(--white);color:var(--ink);box-shadow:var(--shadow)}
 .translation-heading{margin:0 0 .25rem;font-weight:850}
+.translation-subheading{margin:1rem 0 .25rem;padding-top:.8rem;border-top:1px solid var(--border);font-weight:850}
 .translation-introduction,.translation-note{margin:.35rem 0;color:var(--muted);font-size:.82rem;line-height:1.45}
 .translation-options{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;list-style:none;margin:.8rem 0;padding:0}
 .translation-options li{margin:0}
 .nav-list .translation-link{display:flex;align-items:center;min-height:44px;padding:.55rem .65rem;border:1px solid var(--border);border-radius:.45rem;background:var(--ice);color:var(--ink);font-size:.86rem;font-weight:750;line-height:1.25;text-decoration:none}
 .nav-list .translation-link:hover{border-color:var(--blue-dark);background:var(--white);color:var(--blue-dark)}
+.indigenous-language-options{grid-template-columns:1fr}
 .translation-link:focus-visible{outline:3px solid var(--blue-dark);outline-offset:2px;box-shadow:0 0 0 5px var(--white)}
 html[dir=rtl] .translation-panel{right:auto;left:0}
 a[href^="tel:"],a[href^="mailto:"]{direction:ltr;unicode-bidi:isolate}
