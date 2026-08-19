@@ -1,4 +1,4 @@
-import { initialiseTranslationControl } from './translation.js';
+import { initialiseTranslationControl } from './translation.js?v=20260819';
 
 const toggle = document.querySelector('.nav-toggle');
 const menu = document.querySelector('#site-menu');

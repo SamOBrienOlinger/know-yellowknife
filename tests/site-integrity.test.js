@@ -36,10 +36,12 @@ test('mobile navigation has a visible label and keyboard escape handling', async
   for (const name of ['index.html', 'learn.html', 'quiz.html', 'about.html', 'contact.html', 'privacy.html', 'accessibility.html']) {
     const html = await readFile(resolve(root, name), 'utf8');
     assert.match(html, /class="nav-toggle-label">Menu</, `${name} needs a visible menu label`);
+    assert.match(html, /assets\/js\/main\.js\?v=20260819/, `${name} needs the current shared module version`);
   }
   const script = await readFile(resolve(root, 'assets/js/main.js'), 'utf8');
   assert.match(script, /event\.key === 'Escape'/);
   assert.match(script, /toggle\.focus\(\)/);
+  assert.match(script, /translation\.js\?v=20260819/);
 });
 
 test('homepage pathways use descriptive cards without sequence numbers', async () => {
