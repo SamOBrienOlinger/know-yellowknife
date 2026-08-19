@@ -4,16 +4,16 @@ import { readFile } from 'node:fs/promises';
 import { buildTranslationUrl, indigenousLanguageResources, translationLanguages } from '../assets/js/translation.js';
 
 test('translation control offers the requested languages', () => {
-  assert.deepEqual(translationLanguages.map(language => language.code), ['ar', 'fr', 'nl', 'de', 'it', 'es']);
-  assert.equal(translationLanguages.find(language => language.code === 'ar').direction, 'rtl');
-  assert.equal(translationLanguages.filter(language => language.direction === 'ltr').length, 5);
+  assert.deepEqual(translationLanguages.map(language => language.code), ['fr', 'tl', 'pa']);
+  assert.deepEqual(translationLanguages.map(language => language.label), ['French', 'Filipino (Tagalog)', 'Punjabi']);
+  assert.equal(translationLanguages.filter(language => language.direction === 'ltr').length, 3);
 });
 
 test('translation links preserve the source page and target language', () => {
-  const url = new URL(buildTranslationUrl('ar', 'https://example.com/learn.html#place'));
+  const url = new URL(buildTranslationUrl('tl', 'https://example.com/learn.html#place'));
   assert.equal(url.origin, 'https://translate.google.com');
   assert.equal(url.searchParams.get('sl'), 'en');
-  assert.equal(url.searchParams.get('tl'), 'ar');
+  assert.equal(url.searchParams.get('tl'), 'tl');
   assert.equal(url.searchParams.get('u'), 'https://example.com/learn.html#place');
   assert.throws(() => buildTranslationUrl('xx', 'https://example.com/'));
 });

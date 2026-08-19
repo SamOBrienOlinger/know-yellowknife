@@ -1,10 +1,7 @@
 export const translationLanguages = Object.freeze([
-  { code: 'ar', label: 'Arabic', nativeLabel: 'العربية', direction: 'rtl' },
   { code: 'fr', label: 'French', nativeLabel: 'Français', direction: 'ltr' },
-  { code: 'nl', label: 'Dutch', nativeLabel: 'Nederlands', direction: 'ltr' },
-  { code: 'de', label: 'German', nativeLabel: 'Deutsch', direction: 'ltr' },
-  { code: 'it', label: 'Italian', nativeLabel: 'Italiano', direction: 'ltr' },
-  { code: 'es', label: 'Spanish', nativeLabel: 'Español', direction: 'ltr' }
+  { code: 'tl', label: 'Filipino (Tagalog)', nativeLabel: 'Filipino', direction: 'ltr' },
+  { code: 'pa', label: 'Punjabi', nativeLabel: 'ਪੰਜਾਬੀ', direction: 'ltr' }
 ]);
 
 export const indigenousLanguageResources = Object.freeze([
@@ -70,7 +67,7 @@ export const initialiseTranslationControl = menu => {
 
   const introduction = document.createElement('p');
   introduction.className = 'translation-introduction';
-  introduction.textContent = 'Choose a language. A translated copy will open in a new tab.';
+  introduction.textContent = 'Choose one of Yellowknife’s three most-spoken home languages after English, based on the 2021 Census. A translated copy will open in a new tab.';
 
   const list = document.createElement('ul');
   list.className = 'translation-options';
