@@ -6,6 +6,7 @@ import { buildTranslationUrl, indigenousLanguageOptions, translationLanguages } 
 test('translation control offers the requested languages', () => {
   assert.deepEqual(translationLanguages.map(language => language.code), ['fr', 'tl', 'pa']);
   assert.deepEqual(translationLanguages.map(language => language.label), ['French', 'Filipino (Tagalog)', 'Punjabi']);
+  assert.deepEqual(translationLanguages.map(language => language.langTag), ['fr', 'fil', 'pa-Guru']);
   assert.equal(translationLanguages.filter(language => language.direction === 'ltr').length, 3);
 });
 
@@ -22,6 +23,7 @@ test('translation links preserve the source page and target language', () => {
 test('translation panel includes Yellowknife Indigenous language access', () => {
   assert.deepEqual(indigenousLanguageOptions.map(language => language.code), ['dgr', 'scs', 'iu']);
   assert.deepEqual(indigenousLanguageOptions.map(language => language.label), ['Tłı̨chǫ', 'Dene Kǝdǝ́', 'Inuktut (Inuktitut)']);
+  assert.deepEqual(indigenousLanguageOptions.map(language => language.langTag), ['dgr', 'scs', 'iu-Cans']);
   assert.deepEqual(indigenousLanguageOptions.filter(language => language.translate).map(language => language.code), ['iu']);
   assert.ok(indigenousLanguageOptions.filter(language => !language.translate).every(language => language.url.startsWith('https://www.ece.gov.nt.ca/')));
 });
@@ -35,9 +37,11 @@ test('translation control is keyboard accessible and privacy preserving by defau
   assert.match(source, /noopener noreferrer/);
   assert.doesNotMatch(source, /translate_a\/element\.js/);
   assert.match(source, /document\.documentElement\.dir = language\.direction/);
-  assert.match(source, /Google provides automated Inuktut translation/);
+  assert.match(source, /Automated translation — not human reviewed/);
+  assert.match(source, /complete website translations require translation and independent review by qualified fluent speakers/);
   assert.match(source, /Dene Kǝdǝ́ \(North Slavey\)/);
   assert.match(source, /Wıı̀lıı̀deh dialect/);
+  assert.match(source, /document\.documentElement\.lang = language\.langTag/);
 });
 
 test('privacy page explains the optional translation service', async () => {

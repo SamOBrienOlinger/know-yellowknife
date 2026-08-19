@@ -1,26 +1,29 @@
 export const translationLanguages = Object.freeze([
-  { code: 'fr', label: 'French', nativeLabel: 'Français', direction: 'ltr' },
-  { code: 'tl', label: 'Filipino (Tagalog)', nativeLabel: 'Filipino', direction: 'ltr' },
-  { code: 'pa', label: 'Punjabi', nativeLabel: 'ਪੰਜਾਬੀ', direction: 'ltr' }
+  { code: 'fr', langTag: 'fr', label: 'French', nativeLabel: 'Français', direction: 'ltr' },
+  { code: 'tl', langTag: 'fil', label: 'Filipino (Tagalog)', nativeLabel: 'Filipino', direction: 'ltr' },
+  { code: 'pa', langTag: 'pa-Guru', label: 'Punjabi', nativeLabel: 'ਪੰਜਾਬੀ', direction: 'ltr' }
 ]);
 
 export const indigenousLanguageOptions = Object.freeze([
   {
     code: 'dgr',
+    langTag: 'dgr',
     label: 'Tłı̨chǫ',
-    context: 'Wıı̀lıı̀deh dialect resources',
+    context: 'Official Wıı̀lıı̀deh dialect resources',
     url: 'https://www.ece.gov.nt.ca/en/services/indigenous-language-resources/tlicho-resources'
   },
   {
     code: 'scs',
+    langTag: 'scs',
     label: 'Dene Kǝdǝ́',
-    context: 'North Slavey resources',
+    context: 'Official North Slavey resources',
     url: 'https://www.ece.gov.nt.ca/en/dene-kede'
   },
   {
     code: 'iu',
+    langTag: 'iu-Cans',
     label: 'Inuktut (Inuktitut)',
-    context: 'Translate this page',
+    context: 'Automated translation — not human reviewed',
     direction: 'ltr',
     translate: true
   }
@@ -51,7 +54,7 @@ export const initialiseTranslationControl = menu => {
       ...indigenousLanguageOptions.filter(item => item.translate)
     ].find(item => item.code === target);
     if (language) {
-      document.documentElement.lang = language.code;
+      document.documentElement.lang = language.langTag;
       document.documentElement.dir = language.direction;
     }
     return;
@@ -78,11 +81,11 @@ export const initialiseTranslationControl = menu => {
 
   const heading = document.createElement('p');
   heading.className = 'translation-heading';
-  heading.textContent = 'Translate this page';
+  heading.textContent = 'Automated translation';
 
   const introduction = document.createElement('p');
   introduction.className = 'translation-introduction';
-  introduction.textContent = 'Choose one of Yellowknife’s three most-spoken home languages after English, based on the 2021 Census. A translated copy will open in a new tab.';
+  introduction.textContent = 'French, Filipino and Punjabi are Yellowknife’s three most-spoken home languages after English in the 2021 Census. Google creates these convenience translations; they have not been reviewed by fluent speakers.';
 
   const list = document.createElement('ul');
   list.className = 'translation-options';
@@ -94,9 +97,9 @@ export const initialiseTranslationControl = menu => {
     link.href = buildTranslationUrl(language.code, location.href);
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.hreflang = language.code;
-    link.lang = language.code;
-    link.textContent = `${language.nativeLabel} — ${language.label}`;
+    link.hreflang = language.langTag;
+    link.lang = language.langTag;
+    link.textContent = `${language.nativeLabel} — ${language.label} (automated)`;
 
     const newTab = document.createElement('span');
     newTab.className = 'sr-only';
@@ -108,11 +111,11 @@ export const initialiseTranslationControl = menu => {
 
   const indigenousHeading = document.createElement('p');
   indigenousHeading.className = 'translation-subheading';
-  indigenousHeading.textContent = 'Yellowknife Indigenous languages';
+  indigenousHeading.textContent = 'Indigenous language access';
 
   const indigenousIntroduction = document.createElement('p');
   indigenousIntroduction.className = 'translation-introduction';
-  indigenousIntroduction.textContent = 'Access Tłı̨chǫ, Dene Kǝdǝ́ (North Slavey) and Inuktut (Inuktitut). Google provides automated Inuktut translation; the other links open official GNWT language resources.';
+  indigenousIntroduction.textContent = 'Inuktut opens an automated, unreviewed translation. Tłı̨chǫ and Dene Kǝdǝ́ (North Slavey) open official GNWT resources; complete website translations require translation and independent review by qualified fluent speakers.';
 
   const indigenousList = document.createElement('ul');
   indigenousList.className = 'translation-options indigenous-language-options';
@@ -124,8 +127,8 @@ export const initialiseTranslationControl = menu => {
     link.href = language.translate ? buildTranslationUrl(language.code, location.href) : language.url;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.hreflang = language.translate ? language.code : 'en';
-    if (language.translate) link.lang = language.code;
+    link.hreflang = language.translate ? language.langTag : 'en';
+    if (language.translate) link.lang = language.langTag;
     link.textContent = `${language.label} — ${language.context}`;
 
     const newTab = document.createElement('span');
@@ -138,7 +141,7 @@ export const initialiseTranslationControl = menu => {
 
   const note = document.createElement('p');
   note.className = 'translation-note';
-  note.textContent = 'Machine translation by Google may contain errors.';
+  note.textContent = 'English is the reference version. Verify automated translations with a fluent speaker before relying on important information.';
 
   panel.append(heading, introduction, list, indigenousHeading, indigenousIntroduction, indigenousList, note);
   item.append(toggle, panel);
