@@ -38,6 +38,11 @@ test('homepage pathways use descriptive cards without sequence numbers', async (
   assert.match(html, /class="card card-connect"/);
 });
 
+test('quiz introduction has no decorative number badge', async () => {
+  const html = await readFile(resolve(root, 'quiz.html'), 'utf8');
+  assert.doesNotMatch(html, /class="quiz-icon"/);
+});
+
 test('accessibility safeguards cover zoom, touch targets and user preferences', async () => {
   const css = await readFile(resolve(root, 'assets/css/styles.css'), 'utf8');
   assert.match(css, /text-size-adjust:100%/);
