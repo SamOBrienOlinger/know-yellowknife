@@ -1,31 +1,73 @@
 # Know Yellowknife
 
-  ![logo-option-a](https://github.com/user-attachments/assets/a4b884d7-1f01-4dc5-adae-7c7db572a678)
+Know Yellowknife is a mobile-first educational MVP about Yellowknife's peoples, histories, languages and civic life. It combines a source-led learning hub with a replayable, accessible ten-question quiz.
 
-***"Know Yellowknife"*** (**KYK**) is a versatile educational tool, online resource, and digital hub designed to foster connection, belonging, and cultural understanding within Yellowknife. Developed by Sam Tim Solutions (AiA), this platform provides a unique new space for all Yelloknifers to enjoy learning about each other and their own community, whether they’ve lived here since time in immemorial, for many generations, have recently made the City their home or they are visiting as tourists.
+> **Release status:** private-review prototype. Content is independently compiled from public sources and has not undergone formal community review. The contact form validates locally but does not transmit messages.
 
-   ![welcome-to-yk](https://github.com/user-attachments/assets/fe47c39b-b5fb-406f-a4ff-2a89181d4f56)
+## MVP features
 
-As an all-in-one out of the box resource, KYK provides curated educational content, celebrates community voices, and promotes active participation in civic and cultural initiatives.
+- Home, Learn, Quiz, About, Contact, Accessibility, Privacy and custom 404 pages
+- Structured learning content backed by Indigenous-led and official public sources
+- 24 sourced questions; 10 shuffled without replacement per attempt
+- Immediate answer explanations and source links
+- Device-local best score with graceful storage failure handling
+- On-demand translation into Arabic, French, Dutch, German, Italian and Spanish
+- Keyboard-operable navigation and quiz with visible focus and live feedback
+- Mobile-first responsive design with reduced-motion, increased-contrast and forced-colour support
+- Zero runtime dependencies, trackers or external media
+- Unit/data/asset tests using Node's built-in test runner
 
-  ![The-city-of-yellowknife-dance-gala-2022](https://github.com/user-attachments/assets/03e30f94-7641-4a7a-bf84-937422f63165)
+## Run locally
 
-  ![map-northwest-territories](https://github.com/user-attachments/assets/9214028c-54bd-4bd7-a6f2-93229036f44b)
+ES modules require a local HTTP server rather than opening the files directly:
 
-KYK’s mission is to offer residents and visitors alike an inclusive space to explore Yellowknife’s rich history, its vibrant communities, and the stories that unite them. The project is grounded in evidence-based pedagogical principles of Play-Based Learning and Experiential Learning. With a focus on accessibility and user-friendly design, the platform leverages people’s lived experience and  encourages knowledge-sharing to enhance a deeper understanding of, and appreciation for, the city’s unique identity while reinforcing pride and social cohesion.
+```bash
+npm run serve
+```
 
-  ![rainbow-crosswalk](https://github.com/user-attachments/assets/cd102793-9a64-4179-bfe4-111c5e30863e)
+Then open `http://localhost:4173`.
 
-<!-- # ( ***PLACEHOLDER for all the other CONTENTS*** ) -->
+## Test
 
-## Credits
+```bash
+npm test
+```
 
-- Credit 1
-- Credit 2
-- Credit 3
+The test suite checks quiz selection/scoring helpers, all question records, internal HTML links and local asset references.
 
-## Project origins
+## Structure
 
-Know Yellowknife evolved from AllyIndex (opens in a new tab), created by the Allies in Action team during the Code Institute July 2024 hackathon. This MVP reuses the idea of learning through a quiz while replacing the original subject matter and rebuilding its interface and content structure for Yellowknife.
+```text
+assets/
+  css/styles.css
+  data/content.js
+  data/questions.js
+  js/main.js
+  js/translation.js
+  js/learn.js
+  js/quiz-engine.js
+  js/quiz.js
+  js/contact.js
+tests/
+  quiz-engine.test.js
+  site-integrity.test.js
+  translation.test.js
+```
 
-- This project evolved from a MVP delivered as part of a hackathon run by Code Institute that was called [AllyIndex](https://declan444.github.io/24-7-hackathon-team9/index.html)
+## Content policy
+
+An Indigenous organization’s own public material is preferred when describing its identity, history and work. City of Yellowknife and Government of the Northwest Territories pages provide civic and public-service context. Each published learning entry and quiz explanation links to its source. Yellowknife-local and wider regional material are distinguished.
+
+Source access/review date for this MVP: **9 August 2026**.
+
+## Contact integration
+
+`contact.html` is intentionally a transparent demonstration. Before a public release, configure a real endpoint and recipient, update the button/success text, add error handling and replace the provisional privacy wording.
+
+## Deployment
+
+The static site is compatible with GitHub Pages. Production URL, analytics and final public-launch decisions are intentionally deferred. The repository currently includes the existing Apache 2.0 licence.
+
+## Project origin
+
+The learning-through-play concept evolved from [AllyIndex](https://declan444.github.io/24-7-hackathon-team9/), created by Allies in Action for the Code Institute July 2024 hackathon.
