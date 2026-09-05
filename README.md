@@ -1,73 +1,86 @@
 # Know Yellowknife
 
-Know Yellowknife is a mobile-first educational MVP about Yellowknife's peoples, histories, languages and civic life. It combines a source-led learning hub with a replayable, accessible ten-question quiz.
+An educational website about Yellowknife’s peoples, histories, languages and civic life, designed to support learning and belonging.
 
-> **Release status:** private-review prototype. Content is independently compiled from public sources and has not undergone formal community review. The contact form validates locally but does not transmit messages.
+**HTML · CSS · JavaScript**
 
-## MVP features
+[Visit the website](https://samobrienolinger.github.io/know-yellowknife/) · [Getting started](#getting-started) · [Repository guide](#repository-guide) · [Checks](#checks-and-review) · [Credits](#credits-and-reuse)
 
-- Home, Learn, Quiz, About, Contact, Accessibility, Privacy and custom 404 pages
-- Structured learning content backed by Indigenous-led and official public sources
-- 24 sourced questions; 10 shuffled without replacement per attempt
-- Immediate answer explanations and source links
-- Device-local best score with graceful storage failure handling
-- On-demand translation into Arabic, French, Dutch, German, Italian and Spanish
-- Keyboard-operable navigation and quiz with visible focus and live feedback
-- Mobile-first responsive design with reduced-motion, increased-contrast and forced-colour support
-- Zero runtime dependencies, trackers or external media
-- Unit/data/asset tests using Node's built-in test runner
+<img src="assets/images/hero-yellowknife-v5.webp" alt="Illustration of Yellowknife and its surrounding landscape" width="880">
 
-## Run locally
+## What you can explore
 
-ES modules require a local HTTP server rather than opening the files directly:
+- Source-linked learning cards and a replayable ten-question quiz.
+- Answer explanations and a device-local best score.
+- Translation controls and accessibility information.
+- About, contact and privacy pages.
 
-```bash
-npm run serve
-```
+## Using the project
 
-Then open `http://localhost:4173`.
+1. Browse the Learn page and follow the sources attached to each topic.
+2. Answer ten questions in the Quiz and read the explanations.
+3. Replay to explore a different selection and compare your device-local best score.
 
-## Test
+> **Project notes:** Content is independently compiled and has not undergone formal community review. The contact form validates locally without transmitting messages. Consult the cited Indigenous-led and official sources for their own accounts.
+
+## Getting started
+
+Requires a browser and a local HTTP server. Python 3 provides one without installing application packages.
 
 ```bash
-npm test
+git clone https://github.com/SamOBrienOlinger/know-yellowknife.git
+cd know-yellowknife
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-The test suite checks quiz selection/scoring helpers, all question records, internal HTML links and local asset references.
+Open [localhost:8000](http://localhost:8000). Serve the repository over HTTP so module imports, relative assets and page links resolve correctly.
 
-## Structure
+The repository also provides a development-server script. Install its development dependencies with `npm install`, then run `npm run dev`.
 
-```text
-assets/
-  css/styles.css
-  data/content.js
-  data/questions.js
-  js/main.js
-  js/translation.js
-  js/learn.js
-  js/quiz-engine.js
-  js/quiz.js
-  js/contact.js
-tests/
-  quiz-engine.test.js
-  site-integrity.test.js
-  translation.test.js
-```
+## Repository guide
 
-## Content policy
+| Path | Purpose |
+| --- | --- |
+| [index.html](index.html) | Primary browser entry point |
+| [assets/](assets/) | Project styles, scripts, data and imagery |
+| [tests/](tests/) | Automated test source |
+| [package.json](package.json) | Package dependencies and available commands |
 
-An Indigenous organization’s own public material is preferred when describing its identity, history and work. City of Yellowknife and Government of the Northwest Territories pages provide civic and public-service context. Each published learning entry and quiz explanation links to its source. Yellowknife-local and wider regional material are distinguished.
+## Checks and review
 
-Source access/review date for this MVP: **9 August 2026**.
+Use Node.js `>=20` and npm for the package commands below. Install the package dependencies first when the command uses a local build or test tool.
 
-## Contact integration
+| Command | Purpose |
+| --- | --- |
+| `npm test` | Run the existing test suite |
 
-`contact.html` is intentionally a transparent demonstration. Before a public release, configure a real endpoint and recipient, update the button/success text, add error handling and replace the provisional privacy wording.
+For a manual review, follow the main user journey, check keyboard navigation and narrow-screen layouts, and inspect the browser console for missing assets or failed requests.
+
+Supporting notes: [TESTING.md](TESTING.md) · [ally-index/QUIZ-TESTING.md](ally-index/QUIZ-TESTING.md) · [ally-index/TESTING.md](ally-index/TESTING.md).
+
+Generate fresh results from the revision you are working on; historical test reports describe earlier runs.
 
 ## Deployment
 
-The static site is compatible with GitHub Pages. Production URL, analytics and final public-launch decisions are intentionally deferred. The repository currently includes the existing Apache 2.0 licence.
+A GitHub Pages site is configured for this repository. Its published URL is linked at the top of this README.
 
-## Project origin
+## Further reading
 
-The learning-through-play concept evolved from [AllyIndex](https://declan444.github.io/24-7-hackathon-team9/), created by Allies in Action for the Code Institute July 2024 hackathon.
+- [Documentation for ally-index](ally-index/README.md)
+
+## Credits and reuse
+
+Design decisions, original feature notes, historical testing evidence and detailed acknowledgements remain available in the preserved project record:
+
+- [README.md · original project record](https://github.com/SamOBrienOlinger/know-yellowknife/blob/16d19015b5aaa51fec98ad67e302ca7fb47fe772/README.md)
+- [ally-index/README.md · original project record](https://github.com/SamOBrienOlinger/know-yellowknife/blob/16d19015b5aaa51fec98ad67e302ca7fb47fe772/ally-index/README.md)
+
+Learning resources and starter material: [Code Institute](https://codeinstitute.net/).
+
+Reuse terms are recorded in [LICENSE](LICENSE). Third-party assets and dependencies retain their own terms.
+
+## Support
+
+Repository maintained in [Sam O’Brien-Olinger’s GitHub account](https://github.com/SamOBrienOlinger). For a problem or suggested improvement, [open an issue](https://github.com/SamOBrienOlinger/know-yellowknife/issues) with the affected page or command, steps to reproduce, and expected behaviour.
+
+[Back to top](#know-yellowknife)
