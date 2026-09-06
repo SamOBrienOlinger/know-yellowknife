@@ -25,7 +25,7 @@ An educational website about Yellowknife’s peoples, histories, languages and c
 
 ## Getting started
 
-Requires a browser and a local HTTP server. Python 3 provides one without installing application packages.
+Requires Git, a browser and a local HTTP server. Python 3 provides one without installing application packages.
 
 ```bash
 git clone https://github.com/SamOBrienOlinger/know-yellowknife.git
@@ -35,7 +35,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 Open [localhost:8000](http://localhost:8000). Serve the repository over HTTP so module imports, relative assets and page links resolve correctly.
 
-The repository also provides a development-server script. Install its development dependencies with `npm install`, then run `npm run dev`.
+Alternatively, use Node.js `>=20` and npm: run `npm run dev` from the repository root and open [localhost:4173](http://localhost:4173). The server uses Node's built-in modules; `npm install` is not required.
 
 ## Repository guide
 
@@ -48,7 +48,7 @@ The repository also provides a development-server script. Install its developmen
 
 ## Checks and review
 
-Use Node.js `>=20` and npm for the package commands below. Install the package dependencies first when the command uses a local build or test tool.
+Use Node.js `>=20` and npm for the command below. The tests use Node's built-in test runner; no dependency installation is needed.
 
 | Command | Purpose |
 | --- | --- |
@@ -69,6 +69,10 @@ A GitHub Pages site is configured for this repository. Its published URL is link
 - [Documentation for ally-index](ally-index/README.md)
 
 ## Credits and reuse
+
+Developed by Sam O'Brien-Olinger. The learning approach evolved from AllyIndex, created for the Code Institute July 2024 hackathon; the [preserved AllyIndex documentation](ally-index/README.md) records its team, content and media acknowledgements.
+
+Learning content prioritises Indigenous organisations' own accounts, including the Yellowknives Dene First Nation and North Slave Métis Alliance. Civic and environmental context draws on the City of Yellowknife and Government of the Northwest Territories. Exact publisher links are maintained in the [source register](assets/data/content.js) and beside the learning entries and quiz explanations.
 
 Design decisions, original feature notes, historical testing evidence and detailed acknowledgements remain available in the preserved project record:
 
