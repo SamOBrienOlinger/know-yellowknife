@@ -10,7 +10,7 @@
 .hero{background:linear-gradient(120deg,var(--blue-dark),#075d6b);padding:clamp(3.5rem,7vw,6rem) 0}
 .hero-copy{position:relative;z-index:1}
 .hero-illustration{margin:0;border:1px solid rgba(255,255,255,.24);border-radius:1.5rem;overflow:hidden;box-shadow:0 1.4rem 3.5rem rgba(3,29,44,.28);background:var(--ice)}
-.hero-illustration img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.hero-illustration img{display:block;width:100%;height:auto}
 .card{border-top:5px solid var(--turquoise)}
 .card:nth-child(2){border-top-color:var(--yellow)}
 .card:nth-child(3){border-top-color:var(--green)}

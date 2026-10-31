@@ -6,7 +6,7 @@ An educational website about Yellowknife’s peoples, histories, languages and c
 
 [Visit the website](https://samobrienolinger.github.io/know-yellowknife/) · [Getting started](#getting-started) · [Repository guide](#repository-guide) · [Checks](#checks-and-review) · [Credits](#credits-and-reuse)
 
-<img src="assets/images/hero-yellowknife-v5.webp" alt="Illustration of Yellowknife and its surrounding landscape" width="880">
+<img src="assets/images/hero-yellowknife-graphic-novel.webp" alt="Graphic novel illustration of Yellowknife and its surrounding lakes and autumn forest" width="880">
 
 ## What you can explore
 
@@ -64,11 +64,23 @@ Generate fresh results from the revision you are working on; historical test rep
 
 A GitHub Pages site is configured for this repository. Its published URL is linked at the top of this README.
 
+## Useful resources
+
+- [Exploring Yellowknife — Destination Canada](https://travel.destinationcanada.com/en-us/things-to-do/exploring-yellowknife): an introduction to the city’s culture, museums, food, outdoor activities and seasonal experiences.
+
 ## Further reading
 
 - [Documentation for ally-index](ally-index/README.md)
 
 ## Credits and reuse
+
+### Hero image inspiration
+
+The landing-page graphic novel artwork (`assets/images/hero-yellowknife-graphic-novel.webp`) is inspired by **Paul Zizka’s photograph of Yellowknife**, featured in [Destination Canada’s “Exploring Yellowknife”](https://travel.destinationcanada.com/en-us/things-to-do/exploring-yellowknife), which credits him as the photographer. [View the original photograph](https://admin.destinationcanada.com/sites/default/files/images/article/paul_zizka_yellowknife_aerial_september_2010.jpg).
+
+The supplied photograph was reinterpreted using OpenAI’s built-in image generation tool, with inked outlines, illustrated colours and no overlaid text. Paul Zizka is credited for the photographic inspiration; the graphic novel adaptation is AI-generated. This credit does not imply endorsement or change the original photograph’s rights.
+
+[Image-generation prompt](assets/images/hero-yellowknife-graphic-novel.prompt.txt)
 
 Developed by Sam O'Brien-Olinger. The learning approach evolved from AllyIndex, created for the Code Institute July 2024 hackathon; the [preserved AllyIndex documentation](ally-index/README.md) records its team, content and media acknowledgements.
 
