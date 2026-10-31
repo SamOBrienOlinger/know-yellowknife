@@ -5,11 +5,11 @@ test('legacy subject text is absent from production pages',async()=>{for(const p
 
 test('homepage uses the responsive Yellowknife city and landscape illustration', async () => {
   const html = await readFile(resolve(root, 'index.html'), 'utf8');
-  assert.match(html, /hero-yellowknife-v5\.webp/);
-  assert.match(html, /width="1774" height="887"/);
-  assert.match(html, /Yellowknife's downtown among northern lakes/);
+  assert.match(html, /hero-yellowknife-graphic-novel\.webp/);
+  assert.match(html, /width="1661" height="947"/);
+  assert.match(html, /Graphic novel illustration of Yellowknife's skyline/);
 
-  const image = await readFile(resolve(root, 'assets/images/hero-yellowknife-v5.webp'));
+  const image = await readFile(resolve(root, 'assets/images/hero-yellowknife-graphic-novel.webp'));
   assert.equal(image.subarray(0, 4).toString(), 'RIFF');
   assert.equal(image.subarray(8, 12).toString(), 'WEBP');
   assert.ok(image.length > 50_000, 'hero illustration should not be truncated');

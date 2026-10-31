@@ -71,3 +71,15 @@ The static site is compatible with GitHub Pages. Production URL, analytics and f
 ## Project origin
 
 The learning-through-play concept evolved from [AllyIndex](https://declan444.github.io/24-7-hackathon-team9/), created by Allies in Action for the Code Institute July 2024 hackathon.
+
+## Hero image inspiration
+
+The landing-page graphic novel artwork (`assets/images/hero-yellowknife-graphic-novel.webp`) is inspired by **Paul Zizka’s photograph of Yellowknife**, featured in [Destination Canada’s “Exploring Yellowknife”](https://travel.destinationcanada.com/en-us/things-to-do/exploring-yellowknife), which credits him as the photographer. [View the original photograph](https://admin.destinationcanada.com/sites/default/files/images/article/paul_zizka_yellowknife_aerial_september_2010.jpg).
+
+The supplied photograph was reinterpreted using OpenAI’s built-in image generation tool, with inked outlines, illustrated colours and no overlaid text. Paul Zizka is credited for the photographic inspiration; the graphic novel adaptation is AI-generated. This credit does not imply endorsement or change the original photograph’s rights.
+
+[Image-generation prompt](assets/images/hero-yellowknife-graphic-novel.prompt.txt)
+
+## Useful resources
+
+- [Exploring Yellowknife — Destination Canada](https://travel.destinationcanada.com/en-us/things-to-do/exploring-yellowknife): an introduction to the city’s culture, museums, food, outdoor activities and seasonal experiences.
