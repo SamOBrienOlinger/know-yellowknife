@@ -4,7 +4,7 @@ An educational website about Yellowknife’s peoples, histories, languages and c
 
 **HTML · CSS · JavaScript**
 
-[Visit the website](https://samobrienolinger.github.io/know-yellowknife/) · [Getting started](#getting-started) · [Repository guide](#repository-guide) · [Checks](#checks-and-review) · [Credits](#credits-and-reuse)
+[Visit the website](https://samobrienolinger.github.io/know-yellowknife/) · [Getting started](#getting-started) · [Data model](#entity-relationship-diagrams) · [Repository guide](#repository-guide) · [Checks](#checks-and-review) · [Credits](#credits-and-reuse)
 
 <img src="assets/images/hero-yellowknife-graphic-novel.webp" alt="Graphic novel illustration of Yellowknife and its surrounding lakes and autumn forest" width="880">
 
@@ -22,6 +22,63 @@ An educational website about Yellowknife’s peoples, histories, languages and c
 3. Replay to explore a different selection and compare your device-local best score.
 
 > **Project notes:** Content is independently compiled and has not undergone formal community review. The contact form validates locally without transmitting messages. Consult the cited Indigenous-led and official sources for their own accounts.
+
+## Entity relationship diagrams
+
+The static learning site defines its learning cards and quiz questions in JavaScript. It keeps a best quiz score on the device.
+
+### Learning content
+
+Each learning section contains cards. Each card uses a key to look up its source in the shared directory. [Learning content and sources](assets/data/content.js)
+
+```mermaid
+erDiagram
+    accTitle: Yellowknife learning content and sources
+    accDescr: Learning sections contain cards, and every card cites one entry in the shared source directory.
+    "Learning Section" ||--|{ "Learning Card" : contains
+    Source ||..o{ "Learning Card" : supports
+
+    "Learning Section" {
+        string id
+        string title
+    }
+    "Learning Card" {
+        string title
+        string scope
+        string source
+    }
+    Source {
+        string publisher
+        string title
+        url url
+    }
+```
+
+### Quiz
+
+A run samples ten approved questions without repeats. Each question has a source URL and a correct option identified by its index. [Question bank](assets/data/questions.js) · [Quiz engine](assets/js/quiz-engine.js) · [Browser storage](assets/js/quiz.js)
+
+```mermaid
+erDiagram
+    accTitle: Yellowknife quiz data
+    accDescr: Each quiz run samples questions from the bank. Every question offers answer options and records the correct option index.
+    "Quiz Run" }o..|{ Question : draws
+    Question ||--|{ "Answer Option" : offers
+
+    "Quiz Run" {
+        number index
+        number score
+    }
+    Question {
+        string id
+        string topic
+        number correctIndex
+        url sourceUrl
+    }
+    "Answer Option" {
+        string text
+    }
+```
 
 ## Getting started
 
