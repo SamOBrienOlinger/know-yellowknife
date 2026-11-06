@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 417 406" width="417" height="406" role="img" aria-labelledby="erd-title erd-desc"><title id="erd-title">Yellowknife learning content and sources</title><desc id="erd-desc">Learning sections contain cards, and every card cites one entry in the shared source directory.</desc><metadata data-format="mermaid">erDiagram
+    accTitle: Yellowknife learning content and sources
+    accDescr: Learning sections contain cards, and every card cites one entry in the shared source directory.
+    "Learning Section" ||--|{ "Learning Card" : contains
+    Source ||..o{ "Learning Card" : supports
+
+    "Learning Section" {
+        string id
+        string title
+    }
+    "Learning Card" {
+        string title
+        string scope
+        string source
+    }
+    Source {
+        string publisher
+        string title
+        url url
+    }</metadata><style>:root {
+  --panel:#f7fafc; --border:#c7d8e4; --heading:#14354b; --accent:#128276;
+  --card:#174b62; --card-title:#fff; --text:#183448; --muted:#486278;
+  --row:#fff; --stripe:#edf5f9; --rule:#9ab7c9; --line:#486980;
+  --label-bg:#e2f3ee; --label-text:#195649;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --panel:#101c2a; --border:#3c566c; --heading:#eaf5fe; --accent:#53c7b2;
+    --card:#25526b; --card-title:#fff; --text:#e0edf6; --muted:#b4cadd;
+    --row:#192b3c; --stripe:#1e3448; --rule:#52738a; --line:#a3becf;
+    --label-bg:#1b3c41; --label-text:#c3f4e8;
+  }
+}
+text { font-family:Arial, Helvetica, sans-serif; }
+.panel { fill:var(--panel); stroke:var(--border); }
+.accent { fill:var(--accent); }
+.graphic-title { fill:var(--heading); font-weight:700; font-size:16px; }
+.entityBox { fill:var(--card); stroke:var(--rule); }
+.entity-heading { fill:var(--card-title); font-size:16px; font-weight:700; text-anchor:middle; dominant-baseline:middle; }
+.attributeBoxOdd { fill:var(--row); stroke:var(--rule); stroke-width:.8; }
+.attributeBoxEven { fill:var(--stripe); stroke:var(--rule); stroke-width:.8; }
+.attribute-text { fill:var(--text); font-size:13.6px; dominant-baseline:middle; }
+.attribute-type, .attribute-comment { fill:var(--muted); }
+.attribute-key { fill:var(--label-text); font-weight:700; }
+.relationshipLine { fill:none; stroke:var(--line); stroke-width:1.25; }
+.relationshipLabel { fill:var(--label-text); font-size:14px; font-weight:600; text-anchor:middle; dominant-baseline:middle; }
+.relationshipLabelBox { fill:var(--label-bg); }
+marker path { stroke:var(--line); fill:none; }
+marker circle { stroke:var(--line); fill:var(--panel); }</style><defs><marker orient="auto" markerHeight="18" markerWidth="18" refY="9" refX="0" id="ONLY_ONE_START" markerUnits="userSpaceOnUse"><path d="M9,0 L9,18 M15,0 L15,18" fill="none" stroke="gray"/></marker><marker orient="auto" markerHeight="36" markerWidth="45" refY="18" refX="27" id="ONE_OR_MORE_END" markerUnits="userSpaceOnUse"><path d="M3,9 L3,27 M9,18 Q27,0 45,18 Q27,36 9,18" fill="none" stroke="gray"/></marker><marker orient="auto" markerHeight="36" markerWidth="57" refY="18" refX="39" id="ZERO_OR_MORE_END" markerUnits="userSpaceOnUse"><circle r="6" cy="18" cx="9" fill="white" stroke="gray"/><path d="M21,18 Q39,0 57,18 Q39,36 21,18" fill="none" stroke="gray"/></marker></defs><rect class="panel" x=".5" y=".5" width="416" height="405" rx="14"/><rect class="accent" x="22" y="18" width="26" height="3" rx="1.5"/><text class="graphic-title" x="22" y="40" aria-hidden="true"><tspan x="22" y="40">Yellowknife learning content and sources</tspan></text><g transform="translate(7.34 49)"><path marker-start="url(#ONLY_ONE_START)" marker-end="url(#ONE_OR_MORE_END)" d="M96.047,112.341L96.047,122.731C96.047,133.122,96.047,153.902,105.413,172.625C114.779,191.349,133.512,208.016,142.878,216.349L152.244,224.682" class="er relationshipLine"/><path marker-start="url(#ONLY_ONE_START)" marker-end="url(#ZERO_OR_MORE_END)" stroke-dasharray="8,8" d="M327.204,124.682L327.204,133.016C327.204,141.349,327.204,158.016,317.838,174.682C308.472,191.349,289.74,208.016,280.373,216.349L271.007,224.682" class="er relationshipLine"/><g transform="translate(20,32.34114456176758 )"><rect height="80" width="152.09375" y="0" x="0" class="er entityBox"/><text transform="translate(76.046875,14.333333333333332)" y="0" x="0" class="entity-heading">Learning Section</text><rect height="25.666666666666664" width="82.09375" y="28.666666666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,41.5)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="70" y="28.666666666666664" x="82.09375" class="er attributeBoxOdd"/><text transform="translate(87.42708333333333,41.5)" y="0" x="0" class="attribute-text">id</text><rect height="25.666666666666664" width="82.09375" y="54.33333333333333" x="0" class="er attributeBoxEven"/><text transform="translate(5.333333333333333,67.16666666666666)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="70" y="54.33333333333333" x="82.09375" class="er attributeBoxEven"/><text transform="translate(87.42708333333333,67.16666666666666)" y="0" x="0" class="attribute-text">title</text></g><g transform="translate(144.92253303527832,224.68228912353516 )"><rect height="105.66666666666666" width="133.40625" y="0" x="0" class="er entityBox"/><text transform="translate(66.703125,14.333333333333332)" y="0" x="0" class="entity-heading">Learning Card</text><rect height="25.666666666666664" width="62.921875" y="28.666666666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,41.5)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="70.484375" y="28.666666666666664" x="62.921875" class="er attributeBoxOdd"/><text transform="translate(68.25520833333333,41.5)" y="0" x="0" class="attribute-text">title</text><rect height="25.666666666666664" width="62.921875" y="54.33333333333333" x="0" class="er attributeBoxEven"/><text transform="translate(5.333333333333333,67.16666666666666)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="70.484375" y="54.33333333333333" x="62.921875" class="er attributeBoxEven"/><text transform="translate(68.25520833333333,67.16666666666666)" y="0" x="0" class="attribute-text">scope</text><rect height="25.666666666666664" width="62.921875" y="80" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,92.83333333333333)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="70.484375" y="80" x="62.921875" class="er attributeBoxOdd"/><text transform="translate(68.25520833333333,92.83333333333333)" y="0" x="0" class="attribute-text">source</text></g><g transform="translate(272.09375,20 )"><rect height="104.68229166666666" width="110.22137959798177" y="0" x="0" class="er entityBox"/><text transform="translate(55.11068979899088,13.841145833333332)" y="0" x="0" class="entity-heading">Source</text><rect height="25.666666666666664" width="43.916666666666664" y="27.682291666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,40.515625)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="66.30471293131511" y="27.682291666666664" x="43.916666666666664" class="er attributeBoxOdd"/><text transform="translate(49.25,40.515625)" y="0" x="0" class="attribute-text">publisher</text><rect height="25.666666666666664" width="43.916666666666664" y="53.34895833333333" x="0" class="er attributeBoxEven"/><text transform="translate(5.333333333333333,66.18229166666666)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="66.30471293131511" y="53.34895833333333" x="43.916666666666664" class="er attributeBoxEven"/><text transform="translate(49.25,66.18229166666666)" y="0" x="0" class="attribute-text">title</text><rect height="25.666666666666664" width="43.916666666666664" y="79.015625" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,91.84895833333333)" y="0" x="0" class="attribute-text attribute-type">url</text><rect height="25.666666666666664" width="66.30471293131511" y="79.015625" x="43.916666666666664" class="er attributeBoxOdd"/><text transform="translate(49.25,91.84895833333333)" y="0" x="0" class="attribute-text">url</text></g><rect height="17.015625" width="69.59" y="167.99948120117188" x="72.7" class="er relationshipLabelBox" rx="6"/><text y="176.50729370117188" x="107.50121307373047" class="er relationshipLabel">contains</text><rect height="18" width="71.38" y="172.95175170898438" x="277.51" class="er relationshipLabelBox" rx="6"/><text y="181.95175170898438" x="313.19793701171875" class="er relationshipLabel">supports</text></g></svg>

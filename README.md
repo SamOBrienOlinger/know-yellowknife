@@ -31,54 +31,13 @@ The static learning site defines its learning cards and quiz questions in JavaSc
 
 Each learning section contains cards. Each card uses a key to look up its source in the shared directory. [Learning content and sources](assets/data/content.js)
 
-```mermaid
-erDiagram
-    accTitle: Yellowknife learning content and sources
-    accDescr: Learning sections contain cards, and every card cites one entry in the shared source directory.
-    "Learning Section" ||--|{ "Learning Card" : contains
-    Source ||..o{ "Learning Card" : supports
-
-    "Learning Section" {
-        string id
-        string title
-    }
-    "Learning Card" {
-        string title
-        string scope
-        string source
-    }
-    Source {
-        string publisher
-        string title
-        url url
-    }
-```
+[![Learning sections contain cards, and every card cites one entry in the shared source directory.](docs/diagrams/yellowknife-learning-content-and-sources.svg)](docs/diagrams/yellowknife-learning-content-and-sources.svg)
 
 ### Quiz
 
 A run samples ten approved questions without repeats. Each question has a source URL and a correct option identified by its index. [Question bank](assets/data/questions.js) · [Quiz engine](assets/js/quiz-engine.js) · [Browser storage](assets/js/quiz.js)
 
-```mermaid
-erDiagram
-    accTitle: Yellowknife quiz data
-    accDescr: Each quiz run samples questions from the bank. Every question offers answer options and records the correct option index.
-    "Quiz Run" }o..|{ Question : draws
-    Question ||--|{ "Answer Option" : offers
-
-    "Quiz Run" {
-        number index
-        number score
-    }
-    Question {
-        string id
-        string topic
-        number correctIndex
-        url sourceUrl
-    }
-    "Answer Option" {
-        string text
-    }
-```
+[![Each quiz run samples questions from the bank. Every question offers answer options and records the correct option index.](docs/diagrams/yellowknife-quiz-data.svg)](docs/diagrams/yellowknife-quiz-data.svg)
 
 ## Getting started
 

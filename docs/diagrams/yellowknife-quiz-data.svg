@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 302 561" width="302" height="561" role="img" aria-labelledby="erd-title erd-desc"><title id="erd-title">Yellowknife quiz data</title><desc id="erd-desc">Each quiz run samples questions from the bank. Every question offers answer options and records the correct option index.</desc><metadata data-format="mermaid">erDiagram
+    accTitle: Yellowknife quiz data
+    accDescr: Each quiz run samples questions from the bank. Every question offers answer options and records the correct option index.
+    "Quiz Run" }o..|{ Question : draws
+    Question ||--|{ "Answer Option" : offers
+
+    "Quiz Run" {
+        number index
+        number score
+    }
+    Question {
+        string id
+        string topic
+        number correctIndex
+        url sourceUrl
+    }
+    "Answer Option" {
+        string text
+    }</metadata><style>:root {
+  --panel:#f7fafc; --border:#c7d8e4; --heading:#14354b; --accent:#128276;
+  --card:#174b62; --card-title:#fff; --text:#183448; --muted:#486278;
+  --row:#fff; --stripe:#edf5f9; --rule:#9ab7c9; --line:#486980;
+  --label-bg:#e2f3ee; --label-text:#195649;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --panel:#101c2a; --border:#3c566c; --heading:#eaf5fe; --accent:#53c7b2;
+    --card:#25526b; --card-title:#fff; --text:#e0edf6; --muted:#b4cadd;
+    --row:#192b3c; --stripe:#1e3448; --rule:#52738a; --line:#a3becf;
+    --label-bg:#1b3c41; --label-text:#c3f4e8;
+  }
+}
+text { font-family:Arial, Helvetica, sans-serif; }
+.panel { fill:var(--panel); stroke:var(--border); }
+.accent { fill:var(--accent); }
+.graphic-title { fill:var(--heading); font-weight:700; font-size:16px; }
+.entityBox { fill:var(--card); stroke:var(--rule); }
+.entity-heading { fill:var(--card-title); font-size:16px; font-weight:700; text-anchor:middle; dominant-baseline:middle; }
+.attributeBoxOdd { fill:var(--row); stroke:var(--rule); stroke-width:.8; }
+.attributeBoxEven { fill:var(--stripe); stroke:var(--rule); stroke-width:.8; }
+.attribute-text { fill:var(--text); font-size:13.6px; dominant-baseline:middle; }
+.attribute-type, .attribute-comment { fill:var(--muted); }
+.attribute-key { fill:var(--label-text); font-weight:700; }
+.relationshipLine { fill:none; stroke:var(--line); stroke-width:1.25; }
+.relationshipLabel { fill:var(--label-text); font-size:14px; font-weight:600; text-anchor:middle; dominant-baseline:middle; }
+.relationshipLabelBox { fill:var(--label-bg); }
+marker path { stroke:var(--line); fill:none; }
+marker circle { stroke:var(--line); fill:var(--panel); }</style><defs><marker orient="auto" markerHeight="18" markerWidth="18" refY="9" refX="0" id="ONLY_ONE_START" markerUnits="userSpaceOnUse"><path d="M9,0 L9,18 M15,0 L15,18" fill="none" stroke="gray"/></marker><marker orient="auto" markerHeight="36" markerWidth="45" refY="18" refX="27" id="ONE_OR_MORE_END" markerUnits="userSpaceOnUse"><path d="M3,9 L3,27 M9,18 Q27,0 45,18 Q27,36 9,18" fill="none" stroke="gray"/></marker><marker orient="auto" markerHeight="36" markerWidth="57" refY="18" refX="18" id="ZERO_OR_MORE_START" markerUnits="userSpaceOnUse"><circle r="6" cy="18" cx="48" fill="white" stroke="gray"/><path d="M0,18 Q18,0 36,18 Q18,36 0,18" fill="none" stroke="gray"/></marker></defs><rect class="panel" x=".5" y=".5" width="301" height="560" rx="14"/><rect class="accent" x="22" y="18" width="26" height="3" rx="1.5"/><text class="graphic-title" x="22" y="40" aria-hidden="true"><tspan x="22" y="40">Yellowknife quiz data</tspan></text><g transform="translate(59.55 49)"><path marker-start="url(#ZERO_OR_MORE_START)" marker-end="url(#ONE_OR_MORE_END)" stroke-dasharray="8,8" d="M91.45,100L91.45,108.333C91.45,116.667,91.45,133.333,91.45,150C91.45,166.667,91.45,183.333,91.45,191.667L91.45,200" class="er relationshipLine"/><path marker-start="url(#ONLY_ONE_START)" marker-end="url(#ONE_OR_MORE_END)" d="M91.45,331.333L91.45,339.667C91.45,348,91.45,364.667,91.45,381.333C91.45,398,91.45,414.667,91.45,423L91.45,431.333" class="er relationshipLine"/><g transform="translate(37.44987487792969,20 )"><rect height="80" width="108" y="0" x="0" class="er entityBox"/><text transform="translate(54,14.333333333333332)" y="0" x="0" class="entity-heading">Quiz Run</text><rect height="25.666666666666664" width="60.65724182128906" y="28.666666666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,41.5)" y="0" x="0" class="attribute-text attribute-type">number</text><rect height="25.666666666666664" width="47.34275817871094" y="28.666666666666664" x="60.65724182128906" class="er attributeBoxOdd"/><text transform="translate(65.99057515462239,41.5)" y="0" x="0" class="attribute-text">index</text><rect height="25.666666666666664" width="60.65724182128906" y="54.33333333333333" x="0" class="er attributeBoxEven"/><text transform="translate(5.333333333333333,67.16666666666666)" y="0" x="0" class="attribute-text attribute-type">number</text><rect height="25.666666666666664" width="47.34275817871094" y="54.33333333333333" x="60.65724182128906" class="er attributeBoxEven"/><text transform="translate(65.99057515462239,67.16666666666666)" y="0" x="0" class="attribute-text">score</text></g><g transform="translate(20,200 )"><rect height="131.33333333333331" width="142.8997548421224" y="0" x="0" class="er entityBox"/><text transform="translate(71.4498774210612,14.333333333333332)" y="0" x="0" class="entity-heading">Question</text><rect height="25.666666666666664" width="57.231150309244796" y="28.666666666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,41.5)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="85.66860453287761" y="28.666666666666664" x="57.231150309244796" class="er attributeBoxOdd"/><text transform="translate(62.56448364257813,41.5)" y="0" x="0" class="attribute-text">id</text><rect height="25.666666666666664" width="57.231150309244796" y="54.33333333333333" x="0" class="er attributeBoxEven"/><text transform="translate(5.333333333333333,67.16666666666666)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="85.66860453287761" y="54.33333333333333" x="57.231150309244796" class="er attributeBoxEven"/><text transform="translate(62.56448364257813,67.16666666666666)" y="0" x="0" class="attribute-text">topic</text><rect height="25.666666666666664" width="57.231150309244796" y="80" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,92.83333333333333)" y="0" x="0" class="attribute-text attribute-type">number</text><rect height="25.666666666666664" width="85.66860453287761" y="80" x="57.231150309244796" class="er attributeBoxOdd"/><text transform="translate(62.56448364257813,92.83333333333333)" y="0" x="0" class="attribute-text">correctIndex</text><rect height="25.666666666666664" width="57.231150309244796" y="105.66666666666666" x="0" class="er attributeBoxEven"/><text transform="translate(5.333333333333333,118.49999999999999)" y="0" x="0" class="attribute-text attribute-type">url</text><rect height="25.666666666666664" width="85.66860453287761" y="105.66666666666666" x="57.231150309244796" class="er attributeBoxEven"/><text transform="translate(62.56448364257813,118.49999999999999)" y="0" x="0" class="attribute-text">sourceUrl</text></g><g transform="translate(22.981124877929688,431.3333282470703 )"><rect height="54.33333333333333" width="136.9375" y="0" x="0" class="er entityBox"/><text transform="translate(68.46875,14.333333333333332)" y="0" x="0" class="entity-heading">Answer Option</text><rect height="25.666666666666664" width="74.02682495117188" y="28.666666666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,41.5)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="62.910675048828125" y="28.666666666666664" x="74.02682495117188" class="er attributeBoxOdd"/><text transform="translate(79.3601582845052,41.5)" y="0" x="0" class="attribute-text">text</text></g><rect height="17.015625" width="52.69" y="141.4921875" x="65.11" class="er relationshipLabelBox" rx="6"/><text y="150" x="91.44999694824219" class="er relationshipLabel">draws</text><rect height="17.015625" width="49.73" y="372.8251953125" x="66.58" class="er relationshipLabelBox" rx="6"/><text y="381.3330078125" x="91.44999694824219" class="er relationshipLabel">offers</text></g></svg>
