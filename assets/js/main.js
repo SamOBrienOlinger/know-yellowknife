@@ -1,3 +1,4 @@
+import './privacy.js?v=20261111';
 import { initialiseTranslationControl } from './translation.js?v=20260819';
 
 const toggle = document.querySelector('.nav-toggle');
